@@ -985,7 +985,7 @@
             @endforeach
         @endif      
 
-        {{!! Toastr::message() !!}}
+        {!! Toastr::message() !!}
         
 
     </body>

@@ -1,0 +1,77 @@
+
+
++--------+-----------+--------------------------------+---------------------+------------------------------------------------------------------------+------------+
+| Domain | Method    | URI                            | Name                | Action                                                                 | Middleware |
++--------+-----------+--------------------------------+---------------------+------------------------------------------------------------------------+------------+
+|        | GET|HEAD  | /                              | welcome             | App\Http\Controllers\HomeController@index                              | web        |
+|        | GET|HEAD  | admin/category                 | category.index      | App\Http\Controllers\admin\CategoryController@index                    | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | POST      | admin/category                 | category.store      | App\Http\Controllers\admin\CategoryController@store                    | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | admin/category/create          | category.create     | App\Http\Controllers\admin\CategoryController@create                   | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | DELETE    | admin/category/{category}      | category.destroy    | App\Http\Controllers\admin\CategoryController@destroy                  | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | admin/category/{category}      | category.show       | App\Http\Controllers\admin\CategoryController@show                     | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | PUT|PATCH | admin/category/{category}      | category.update     | App\Http\Controllers\admin\CategoryController@update                   | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | admin/category/{category}/edit | category.edit       | App\Http\Controllers\admin\CategoryController@edit                     | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | admin/dashboard                | admin.dashboard     | App\Http\Controllers\admin\DashboardController@index                   | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | POST      | admin/item                     | item.store          | App\Http\Controllers\admin\ItemController@store                        | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | admin/item                     | item.index          | App\Http\Controllers\admin\ItemController@index                        | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | admin/item/create              | item.create         | App\Http\Controllers\admin\ItemController@create                       | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | PUT|PATCH | admin/item/{item}              | item.update         | App\Http\Controllers\admin\ItemController@update                       | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | admin/item/{item}              | item.show           | App\Http\Controllers\admin\ItemController@show                         | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | DELETE    | admin/item/{item}              | item.destroy        | App\Http\Controllers\admin\ItemController@destroy                      | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | admin/item/{item}/edit         | item.edit           | App\Http\Controllers\admin\ItemController@edit                         | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | admin/reservation              | reservation.index   | App\Http\Controllers\admin\ReservationController@index                 | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | POST      | admin/reservation_delete/{$id} | reservation.destroy | App\Http\Controllers\admin\ReservationController@destroy               | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | POST      | admin/reservation_edit/{$id}   | reservation.status  | App\Http\Controllers\admin\ReservationController@status                | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | POST      | admin/slider                   | slider.store        | App\Http\Controllers\admin\SliderController@store                      | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | admin/slider                   | slider.index        | App\Http\Controllers\admin\SliderController@index                      | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | admin/slider/create            | slider.create       | App\Http\Controllers\admin\SliderController@create                     | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | admin/slider/{slider}          | slider.show         | App\Http\Controllers\admin\SliderController@show                       | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | PUT|PATCH | admin/slider/{slider}          | slider.update       | App\Http\Controllers\admin\SliderController@update                     | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | DELETE    | admin/slider/{slider}          | slider.destroy      | App\Http\Controllers\admin\SliderController@destroy                    | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | admin/slider/{slider}/edit     | slider.edit         | App\Http\Controllers\admin\SliderController@edit                       | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | api/user                       |                     | Closure                                                                | api        |
+|        |           |                                |                     |                                                                        | auth:api   |
+|        | GET|HEAD  | login                          | login               | App\Http\Controllers\Auth\LoginController@showLoginForm                | web        |
+|        |           |                                |                     |                                                                        | guest      |
+|        | POST      | login                          |                     | App\Http\Controllers\Auth\LoginController@login                        | web        |
+|        |           |                                |                     |                                                                        | guest      |
+|        | POST      | logout                         | logout              | App\Http\Controllers\Auth\LoginController@logout                       | web        |
+|        | POST      | password/confirm               |                     | App\Http\Controllers\Auth\ConfirmPasswordController@confirm            | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | GET|HEAD  | password/confirm               | password.confirm    | App\Http\Controllers\Auth\ConfirmPasswordController@showConfirmForm    | web        |
+|        |           |                                |                     |                                                                        | auth       |
+|        | POST      | password/email                 | password.email      | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail  | web        |
+|        | POST      | password/reset                 | password.update     | App\Http\Controllers\Auth\ResetPasswordController@reset                | web        |
+|        | GET|HEAD  | password/reset                 | password.request    | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web        |
+|        | GET|HEAD  | password/reset/{token}         | password.reset      | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web        |
+|        | POST      | register                       |                     | App\Http\Controllers\Auth\RegisterController@register                  | web        |
+|        |           |                                |                     |                                                                        | guest      |
+|        | GET|HEAD  | register                       | register            | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web        |
+|        |           |                                |                     |                                                                        | guest      |
+|        | POST      | reservation                    | reservation.reserve | App\Http\Controllers\ReservationController@reserve                     | web        |
++--------+-----------+--------------------------------+---------------------+------------------------------------------------------------------------+------------+

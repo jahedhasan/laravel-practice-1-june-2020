@@ -5,7 +5,6 @@
   <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 @endpush
-
 @section('content')
     <div class="content">
       <div class="container-fluid">
@@ -48,19 +47,30 @@
                                   <span class="badge badge-danger">Not Confirmed yet</span>
                               @endif
                           </th>
-                          <td>{{  $reservation->created_at  }}</td>
-                          <td><a href="" class="btn btn-info btn-sm">Edit</a></td>
+                          <td>{{  $reservation->created_at }}</td>
                           <td>
-                            <form id="delete-form-{{ $reservation->id }}" action="" style="display: none;" method="POST">
+                            @if($reservation->status == false)
+                              <form id="status-form-{{ $reservation->id }}" action="{{ route('reservation.status',$reservation->id) }}" style="display: none;" method="POST">
                                   @csrf
-                                  @method('DELETE')
+                                  @method('PUT')
                               </form>
-                              <button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('Are you sure? You want to delete this?')){
-                                  event.preventDefault();
-                                  document.getElementById('delete-form-{{ $reservation->id }}').submit();
-                              }else {
-                                  event.preventDefault();
-                                      }">Delete</button>
+                              <button type="button" class="btn btn-info btn-sm" onclick="if(confirm('Are you verify this request by phone?')){
+                                      event.preventDefault();
+                                      document.getElementById('status-form-{{ $reservation->id }}').submit();
+                                      }else {
+                                      event.preventDefault();
+                                      }"><i class="material-icons">done</i></button>
+                            @endif
+                            <form id="delete-form-{{ $reservation->id }}" action="{{ route('reservation.destroy',$reservation->id) }}" style="display: none;" method="POST">
+                                @csrf
+                                @method('DELETE')
+                            </form>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('Are you sure? You want to delete this?')){
+                                event.preventDefault();
+                                document.getElementById('delete-form-{{ $reservation->id }}').submit();
+                            }else {
+                                event.preventDefault();
+                                    }"><i class="material-icons">cancel</i></button>
                           </td>
                         </tr>
                       @endforeach

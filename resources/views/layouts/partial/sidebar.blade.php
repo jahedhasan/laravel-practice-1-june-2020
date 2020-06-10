@@ -33,7 +33,7 @@
           <p>Item</p>
         </a>
       </li>
-      <li class="{{ Request::is('admin/item*') ? 'active': ''}}">
+      <li class="{{ Request::is('admin/reservation*') ? 'active': ''}}">
         <a class="nav-link" href="{{ route('reservation.index') }}">
           <i class="material-icons">book</i>
           <p>Reservation</p>
