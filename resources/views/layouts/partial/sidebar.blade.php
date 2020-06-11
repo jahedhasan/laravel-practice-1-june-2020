@@ -39,10 +39,10 @@
           <p>Reservation</p>
         </a>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="./tables.html">
-          <i class="material-icons">content_paste</i>
-          <p>Table List</p>
+      <li class="{{ Request::is('admin/contact*') ? 'active': ''}}">
+        <a class="nav-link" href="{{ route('contact.index') }}">
+          <i class="material-icons">messages</i>
+          <p>Contact Message</p>
         </a>
       </li>
     </ul>
