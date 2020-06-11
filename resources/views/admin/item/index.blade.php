@@ -2,7 +2,6 @@
 
 @section('title','Item')
 @push('css')
-  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 @endpush
 
@@ -22,7 +21,7 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table id="slide_table" class="table table-striped" style="width:100%">
+                  <table id="item_table" class="table table-striped" style="width:100%">
                     <thead style="color: #d800ff">
                       <th>ID</th>
                       <th>Name</th>
@@ -74,12 +73,11 @@
 @endsection
 
 @push('scripts')
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script  src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
   <script  src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
   <script>
     $(document).ready(function() {
-    $('#slide_table').DataTable();
+    $('#item_table').DataTable();
     } );
   </script>
 @endpush

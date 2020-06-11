@@ -28,3 +28,17 @@ Route::put('reservation/{$id}', 'ReservationController@status')->name('reservati
 Right
 Route::put('reservation/{id}', 'ReservationController@status')->name('reservation.status');
 ~~~
+
+
+
+
+@if($errors->any()){
+  @foreach( $errors->all() as $error)
+      <script type="text/javascript">
+        toastr.error('{{ }}');
+      </script>
+  @endforeach
+}
+
+
+
