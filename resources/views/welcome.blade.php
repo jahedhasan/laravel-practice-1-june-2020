@@ -339,7 +339,7 @@
                     <div class="col-md-6 col-md-offset-3">
                         <div class="copyright text-center">
                             <p>
-                                &copy; Copyright, 2020 . <a href="#">Mamma's Kitchen.  </a>Developed By <a href="https://github.com/jahedhasan">Jahed Hasan </a> Theme by <a href="http://themewagon.com/"  target="_blank">ThemeWagon</a>
+                                &copy; Copyright, 2020 . <a href="#">Mamma's Kitchen.  </a>Developed By <a href="https://github.com/jahedhasan"><b>Jahed Hasan</b> </a> Theme by <a href="http://themewagon.com/"  target="_blank">ThemeWagon</a>
                             </p>
                         </div>
                     </div>

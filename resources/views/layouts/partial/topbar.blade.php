@@ -1,7 +1,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Dashboard</a>
+            <a class="navbar-brand" href="javascript:;">Hello, <b>{{ Auth::user()->name }}</b></a>
           </div>
           
           <div class="collapse navbar-collapse justify-content-end">
